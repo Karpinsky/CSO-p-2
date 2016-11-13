@@ -125,36 +125,6 @@ void ButtonPressedQuantity()
 void ButtonPressedQuantityBitOperations()
 {
 	// To be edited
-	/*
-	 * As STM32F4 has only 4 LEDs that I know about - I used only them.
-	 * This reduces max number represented to 4 bits.
-	 * But the logic is the same for any amount of bits.
-	 */
-
-	int currentLedIndex = 0;
-
-	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == GPIO_PIN_SET)
-	{
-		pressCount++;
-		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12 | GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15, GPIO_PIN_RESET);
-		HAL_Delay(50);
-		while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == GPIO_PIN_SET){}
-		HAL_Delay(50);
-	}
-
-	int currentPressCount;
-	currentPressCount = pressCount;
-
-	while(currentPressCount > 0)
-	{
-		if (currentPressCount % 2)
-		{
-			HAL_GPIO_WritePin(GPIOD, allLEDs[currentLedIndex], GPIO_PIN_SET);
-		}
-
-		currentLedIndex++;
-		currentPressCount /= 2;
-	}
 }
 
 /* USER CODE END 0 */
